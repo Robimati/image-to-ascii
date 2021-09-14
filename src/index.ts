@@ -28,8 +28,8 @@ const toGrayScale = (image: any, w: number, h: number) => {
 };
 
 const resizeImg = (image: any, w: number, h: number) => {
-    const swPercentage: number = Math.round(outCon.outputWidth / w * 100);
-    image.resize(outCon.outputWidth, (swPercentage / 100 * h) / 2);
+    const swPercentage: number = Math.round(outCon.resolution / w * 100);
+    image.resize(outCon.resolution, (swPercentage / 100 * h) / 2);
     return image;
 };
 
