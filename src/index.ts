@@ -3,8 +3,12 @@ import Jimp from 'jimp';
 import outCon from './outCon';
 
 const imagesDir: string = path.join(__dirname, "../load/", process.argv[2]);    // Directory of images to read
-const asciiCharRamp: string = "░▒▓█";                                           // Characters ramp for grayscale representation in ASCII
+let asciiCharRamp: string = "░▒▓█";                                           // Characters ramp for grayscale representation in ASCII
 const crLenght: number = asciiCharRamp.length;                                  // Characters ramp lenght
+
+if (outCon.blankCharacter) {
+    asciiCharRamp = ` ${asciiCharRamp}`;
+}
 
 const rgbToGray = (r: number, g: number, b: number): number => {
     return 0.21 * r + 0.72 * g + 0.07 * b;
